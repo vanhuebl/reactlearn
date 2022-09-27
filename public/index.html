@@ -58,6 +58,24 @@ const Form = {
     }
 }
 
+function Button({title, href, onClick}) {
+    let Component = 'button'
+    const props ={}
+
+    if (href){
+        Component = 'a'
+        props.href = href
+    }
+
+    if (onClick) {
+        props.onClick = onClick
+    }
+    
+    return (
+        <Component {...props}>{title}</Component>
+    )
+}
+
 function App() {
     const type = 'Input'
     const Component = Form[type]
@@ -66,6 +84,11 @@ function App() {
             <Form.Input />
             <Form.CheckBox />
             <Component />
+            <Button
+                title = "Click me!"
+                href="https://fullstack.edu.vn/"
+                onClick={() => console.log(Math.random())}
+            />
         </div>
     )
 }
