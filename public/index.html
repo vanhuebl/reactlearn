@@ -76,6 +76,15 @@ function Button({title, href, onClick}) {
     )
 }
 
+function Input({label, ...inputProps}) {
+    return (
+        <div>
+            <label>{label}</label>
+            <input {...inputProps} />
+        </div>
+    )
+}
+
 function App() {
     const type = 'Input'
     const Component = Form[type]
@@ -88,6 +97,15 @@ function App() {
                 title = "Click me!"
                 href="https://fullstack.edu.vn/"
                 onClick={() => console.log(Math.random())}
+            />
+            <Input
+                label="Full name "
+                type='input'
+                placeholder="Enter name..."
+                title="this in input"
+                onFocus={() => {
+                    console.log(Math.random())
+                }}
             />
         </div>
     )
